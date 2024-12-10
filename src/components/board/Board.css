@@ -1,0 +1,13 @@
+.board {
+    display: grid;
+    gap: 15px;
+    margin: 0 auto;
+    overflow: hidden;
+    margin: 25px auto;
+    justify-content: center;
+}
+
+.four-columns {
+    grid-template-columns: repeat(4, 6rem);
+    grid-template-rows: repeat(4, 9rem);
+}

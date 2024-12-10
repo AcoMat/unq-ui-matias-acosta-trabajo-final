@@ -1,0 +1,42 @@
+
+.card-image {
+    width: 100%;
+    height: 100%;
+}
+
+.card {
+    background-color: transparent;
+    perspective: 1000px;
+    padding: 5px;
+}
+
+.card-inner {
+    background-color: #ffffff;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.card-enabled {
+    cursor: pointer;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}

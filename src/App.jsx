@@ -1,6 +1,5 @@
 
 import { useContext } from 'react'
-import './App.css'
 import { GameStateContext } from './context/GameStateContext'
 import Board from './components/board/Board';
 
@@ -23,8 +22,8 @@ function App() {
           <h2>Elegí una dificultad</h2>
           <div>
             <button onClick={nextStage}>Fácil</button>
-            <button onClick={nextStage}>Medio</button>
-            <button onClick={nextStage}>Difícil</button>
+            <button onClick={nextStage} disabled>Medio</button>
+            <button onClick={nextStage} disabled>Difícil</button>
           </div>
         </div>
         :
