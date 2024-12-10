@@ -2,6 +2,7 @@
 import { useContext } from 'react'
 import { GameStateContext } from './context/GameStateContext'
 import Board from './components/board/Board';
+import { CardSelectionProvider } from './context/CardSelectionContext';
 
 function App() {
   const { GameStages, stage, nextStage, reset } = useContext(GameStateContext);
@@ -30,7 +31,9 @@ function App() {
         stage === GameStages[2] ?
           <div>
             <h2>Jugando</h2>
-            <Board height={4} width={4}/>
+            <CardSelectionProvider>
+              <Board height={4} width={4} />
+            </CardSelectionProvider>
             <div>
               <button onClick={nextStage}>Terminar</button>
             </div>
