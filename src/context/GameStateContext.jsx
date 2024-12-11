@@ -10,9 +10,13 @@ export const GameStateProvider = ({ children }) => {
     const [lastTime, setLastTime] = useState(null);
     
     const nextStage = () => {
-        console.log((GameStages.indexOf(currentStage) + 1));
         setCurrentStage(GameStages[(GameStages.indexOf(currentStage) + 1) % GameStages.length]);
     };
+
+    const prevStage = () => {
+        setCurrentStage(GameStages[(GameStages.indexOf(currentStage) - 1)]);
+    };
+    
     
     useEffect(() => {
         if (currentStage === GameStages[2]) {
@@ -29,7 +33,7 @@ export const GameStateProvider = ({ children }) => {
 
 
     return (
-        <GameStateContext.Provider value={{ currentStage, lastTime, pairsQuantity, nextStage, reset, setPairsQuantity }}>
+        <GameStateContext.Provider value={{ currentStage, lastTime, pairsQuantity, nextStage, prevStage, reset, setPairsQuantity }}>
             {children}
         </GameStateContext.Provider>
     );

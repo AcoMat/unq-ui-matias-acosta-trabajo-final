@@ -4,6 +4,7 @@
 }
 
 .gameover-container button {
+    margin-top: 20px;
     background-color: #00adb5;
     color: white;
     border: none;
@@ -15,4 +16,8 @@
 
 .gameover-container button:active {
     background-color: #008d95;
+}
+
+.gameover-container p {
+    font-size: 2rem;
 }

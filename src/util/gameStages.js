@@ -1,1 +1,1 @@
-export const GameStages = ["MENU", "CHOOSINGDIF", "PLAYING", "GAME_OVER"];
+export const GameStages = ["MENU", "CHOOSINGMODE", "CHOOSINGDIF", "PLAYING", "GAME_OVER"];

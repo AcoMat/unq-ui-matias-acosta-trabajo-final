@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react';
-import { GameStateContext } from '../../context/GameStateContext';
-import './ChooseBoard.css';
+import { GameStateContext } from '../../../context/GameStateContext';
+import '../Choose.css';
 function ChooseBoard() {
-    const { nextStage, setPairsQuantity } = useContext(GameStateContext);
+    const { nextStage, prevStage, setPairsQuantity } = useContext(GameStateContext);
     const [customNumber, setCustomNumber] = useState(4);
 
     const handleClick = (pairs) => {
@@ -32,6 +32,8 @@ function ChooseBoard() {
             {customNumber % 2 == 1 && <span className='warning'>El número debe ser par</span>}
             {customNumber < 4 && <span className='warning'>Minimo 4 pares</span>}
             {customNumber > 32 && <span className='warning'>Maximo 32 pares</span>}
+            <button className='back-button' onClick={() => prevStage()}>Volver</button>
+
         </div>
     );
 }
