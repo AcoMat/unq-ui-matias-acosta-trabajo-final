@@ -28,8 +28,8 @@ function Board({ height, width }) {
     return (
         <CardSelectionProvider height={height} width={width}>
             <div className='board' style={{
-                gridTemplateColumns: `repeat(${width}, 6rem)`, 
-                gridTemplateRows: `repeat(${height}, 9rem)`,
+                gridTemplateColumns: `repeat(${width}, 80px)`, 
+                gridTemplateRows: `repeat(${height}, 100px)`,
             }}>
                 {gamePairs.map((card, index) => (
                     <Card key={index} value={card} />

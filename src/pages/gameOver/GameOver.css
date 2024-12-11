@@ -1,15 +1,9 @@
-.title-container {
-    padding-top: 20vh;
+.gameover-container {
+    margin: 20vh;
     text-align: center;
 }
 
-.title {
-    font-size: 5rem;
-    font-weight: bold;
-    color: white;
-}
-
-.start-button {
+.gameover-container button {
     background-color: #00adb5;
     color: white;
     border: none;
@@ -17,9 +11,8 @@
     font-size: 1.5rem;
     border-radius: 5px;
     cursor: pointer;
-    align-self: center;
 }
 
-.start-button:active {
+.gameover-container button:active {
     background-color: #008d95;
 }

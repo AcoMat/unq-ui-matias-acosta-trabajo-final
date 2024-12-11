@@ -13,8 +13,8 @@ function Game() {
   const calculateBoardDimensions = (wantedPairs) => {
     const totalCards = wantedPairs * 2;
 
-    let height = Math.floor(Math.sqrt(totalCards));
-    let width = Math.floor(totalCards / height);
+    let height = Math.ceil(Math.sqrt(totalCards)) ;
+    let width = Math.ceil(totalCards / height);
     console.log(height, width);
     
     
