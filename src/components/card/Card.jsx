@@ -17,12 +17,12 @@ function Card({ value }) {
     };
 
     return (
-        <div className={`flip-card ${active ? '' : 'inactive'}`} onClick={handleClick}>
+        <div className={`flip-card ${active ? '' : 'inactive'} ${allLocked ? '' : "clickable" }`} onClick={handleClick}>
             <div className='flip-card-front'>
-                <img src={cardImages[value]} alt="card" className='card-image' />
+                <img src={cardImages[value]} alt="card" className='card-image-front' />
             </div>
             <div className='flip-card-back'>
-                <img src={reverso} alt="card" className='card-image' />
+                <img src={reverso} alt="card" className='card-image-back' />
             </div>
         </div>
     );
