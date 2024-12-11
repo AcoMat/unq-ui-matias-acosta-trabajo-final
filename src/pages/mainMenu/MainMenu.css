@@ -1,0 +1,26 @@
+.title-container {
+    padding-top: 20vh;
+    text-align: center;
+}
+
+.title {
+    font-size: 5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.start-button {
+    background-color: #00adb5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: center;
+}
+
+.start-button:active {
+    background-color: #008d95;
+}
