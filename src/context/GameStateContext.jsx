@@ -1,10 +1,11 @@
 import React, { createContext, useEffect, useState } from "react";
+import { GameStages } from "../util/gameStages";
 
 export const GameStateContext = createContext();
 
 export const GameStateProvider = ({ children }) => {
-    const GameStages = ["MENU", "CHOOSINGDIF", "PLAYING", "GAME_OVER"];
     const [currentStage, setCurrentStage] = useState(GameStages[0]);
+    const [boardSize, setBoardSize] = useState(null);
     const [startTime, setStartTime] = useState(null);
     const [lastTime, setLastTime] = useState(null);
     
@@ -26,8 +27,9 @@ export const GameStateProvider = ({ children }) => {
         setCurrentStage(GameStages[0]);
     };
 
+
     return (
-        <GameStateContext.Provider value={{ GameStages, currentStage, lastTime, nextStage, reset }}>
+        <GameStateContext.Provider value={{ currentStage, lastTime, boardSize, nextStage, reset, setBoardSize }}>
             {children}
         </GameStateContext.Provider>
     );

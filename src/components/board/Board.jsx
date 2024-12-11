@@ -6,39 +6,40 @@ import './Board.css';
 import { useEffect, useState } from 'react';
 
 function Board({ height, width }) {
-    const [duplicatedPairs, setDuplicatedPairs] = useState([]);
+    const [gamePairs, setGamePairs] = useState([]);
     const boardSize = height * width;
 
     useEffect(() => {
         console.log("Board creado");
         console.log("Pares restantes: " + (boardSize / 2));
 
-        let gamePairs = [];
+        let randomPairs = [];
         for (let i = 0; i < (boardSize / 2); i++) {
-            gamePairs = [...gamePairs, (Object.keys(cardImages)[Math.floor(Math.random() * Object.keys(cardImages).length)])];
+            randomPairs = [...randomPairs, (Object.keys(cardImages)[Math.floor(Math.random() * Object.keys(cardImages).length)])];
         }
 
-        gamePairs = gamePairs.concat(gamePairs);
-        
+        randomPairs = randomPairs.concat(randomPairs);
+
         // Fisher-Yates Shuffle
-        for (let i = gamePairs.length - 1; i > 0; i--) {
+        for (let i = randomPairs.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
-            [gamePairs[i], gamePairs[j]] = [gamePairs[j], gamePairs[i]];
+            [randomPairs[i], randomPairs[j]] = [randomPairs[j], randomPairs[i]];
         }
 
-        setDuplicatedPairs(gamePairs); 
+        setGamePairs(randomPairs);
     }, []);
 
-    
-
     return (
-        <div className="board four-columns">
-            <CardSelectionProvider height={height} width={width}>
-                {duplicatedPairs.map((card, index) => (
+        <CardSelectionProvider height={height} width={width}>
+            <div className='board' style={{
+                gridTemplateColumns: `repeat(${width}, 6rem)`, 
+                gridTemplateRows: `repeat(${height}, 9rem)`,
+            }}>
+            {gamePairs.map((card, index) => (
                     <Card key={index} value={card} />
                 ))}
-            </CardSelectionProvider>
-        </div>
+            </div>
+        </CardSelectionProvider>
     );
 }
 

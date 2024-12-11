@@ -1,0 +1,1 @@
+export const GameStages = ["MENU", "CHOOSINGDIF", "PLAYING", "GAME_OVER"];
