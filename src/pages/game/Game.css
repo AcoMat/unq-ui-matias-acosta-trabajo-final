@@ -1,10 +1,8 @@
 .board-container {
-    margin-top: 2vh;
-    justify-content: center;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-
-    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+    max-height: 95vh;
+    box-sizing: border-box; 
 }

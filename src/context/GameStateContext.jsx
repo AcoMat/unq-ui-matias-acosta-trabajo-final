@@ -24,7 +24,7 @@ export const GameStateProvider = ({ children }) => {
     }, [currentStage]);
 
     const reset = () => {
-        setCurrentStage(GameStages[0]);
+        setCurrentStage(GameStages[1]);
     };
 
 
