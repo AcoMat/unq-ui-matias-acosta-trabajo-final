@@ -1,0 +1,15 @@
+export const allCards = [
+    '1oro'
+    ,'1espada'
+    ,'1copa'
+    ,'2espada'
+    ,'3copa'
+    ,'4oro'
+    ,'4basto'
+    ,'7espada'
+    ,'10oro'
+    ,'11oro'
+    ,'11copa'
+    ,'12basto'
+    ,'12oro'
+];

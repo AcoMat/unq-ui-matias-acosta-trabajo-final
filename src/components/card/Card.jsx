@@ -1,22 +1,29 @@
 import './Card.css';
 import reverso from '../../assets/cards/reverso.jpg';
-import { useContext, useState } from 'react';
-import { CardSelectionContext } from '../../context/CardSelectionContext';
-function Card({ image }) {
+import { useEffect, useState } from 'react';
+
+
+function Card({ value, addSelection }) {
     const [active, setActive] = useState(false);
     const [locked, setLocked] = useState(false);
-    const { addSelection } = useContext(CardSelectionContext);
 
     const handleClick = () => {
-        if (locked) return;
+        if (locked || active) return;
         setActive(!active);
-        addSelection({ id:"1oro", setActive, setLocked });
+        addSelection({ value, setActive, setLocked });
     };
 
+    useEffect(() => {
+        console.log("Carta creada");
+        console.log(value);
+        console.log(`../../assets/cards/${value}.jpg`);
+        
+    }, []);
+
     return (
-        <div className={`flip-card ${active || locked ? '' : 'inactive'}`} onClick={handleClick}>
+        <div className={`flip-card ${active ? '' : 'inactive'}`} onClick={handleClick}>
             <div className='flip-card-front'>
-                <img src={image} alt="card" className='card-image' />
+                <img src={`../../assets/cards/11oro.jpg`} alt="card" className='card-image' />
             </div>
             <div className='flip-card-back'>
                 <img src={reverso} alt="card" className='card-image' />
