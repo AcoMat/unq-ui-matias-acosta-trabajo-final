@@ -2,43 +2,26 @@
 import { useContext } from 'react'
 import { GameStateContext } from './context/GameStateContext'
 import Board from './components/board/Board';
-import Card from './components/card/Card';
+import MainMenu from './pages/mainMenu/MainMenu';
+import ChooseBoard from './pages/chooseBoard/ChooseBoard';
+import Game from './pages/game/Game';
 
 function App() {
-  const { GameStages, stage, nextStage, reset } = useContext(GameStateContext);
+  const { GameStages, currentStage, lastTime, nextStage, reset,  } = useContext(GameStateContext);
 
   return (
-    stage === GameStages[0] ?
-      <div>
-        <div>
-          <h1>MemoTest</h1>
-        </div>
-        <div>
-          <button onClick={nextStage}>Jugar</button>
-        </div>
-      </div>
+    currentStage === GameStages[0] ?
+      <MainMenu/>
       :
-      stage === GameStages[1] ?
-        <div>
-          <h2>Elegí una dificultad</h2>
-          <div>
-            <button onClick={nextStage}>Fácil</button>
-            <button onClick={nextStage} disabled>Medio</button>
-            <button onClick={nextStage} disabled>Difícil</button>
-          </div>
-        </div>
+      currentStage === GameStages[1] ?
+        <ChooseBoard/>
         :
-        stage === GameStages[2] ?
-          <div>
-            <h2>Jugando</h2>
-              <Board height={4} width={4}/>
-            <div>
-              <button onClick={nextStage}>Terminar</button>
-            </div>
-          </div>
+        currentStage === GameStages[2] ?
+          <Game/>
           :
           <div>
             <h2>Game Over</h2>
+            <h3>Tu tiempo fue de {lastTime} segundos</h3>
             <div>
               <button onClick={reset}>Volver a jugar</button>
             </div>
