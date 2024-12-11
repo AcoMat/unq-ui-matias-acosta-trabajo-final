@@ -1,11 +1,13 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import { GameStateContext } from "./GameStateContext";
 
 export const CardSelectionContext = createContext();
 
 export const CardSelectionProvider = ({ children, width, height }) => {
     const [allLocked, setAllLocked] = useState(false);
     const [selectedCard, setSelectedCard] = useState(null);
-    const [pairsRemain, setPairsRemain] = useState(width * height / 2);
+    const { pairsQuantity } = useContext(GameStateContext);
+    const [pairsRemain, setPairsRemain] = useState(pairsQuantity);
 
     useEffect(() => {
         console.log("Pares restantes: " + pairsRemain);

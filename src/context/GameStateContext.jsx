@@ -5,7 +5,7 @@ export const GameStateContext = createContext();
 
 export const GameStateProvider = ({ children }) => {
     const [currentStage, setCurrentStage] = useState(GameStages[0]);
-    const [boardSize, setBoardSize] = useState(null);
+    const [pairsQuantity, setPairsQuantity] = useState(null);
     const [startTime, setStartTime] = useState(null);
     const [lastTime, setLastTime] = useState(null);
     
@@ -29,7 +29,7 @@ export const GameStateProvider = ({ children }) => {
 
 
     return (
-        <GameStateContext.Provider value={{ currentStage, lastTime, boardSize, nextStage, reset, setBoardSize }}>
+        <GameStateContext.Provider value={{ currentStage, lastTime, pairsQuantity, nextStage, reset, setPairsQuantity }}>
             {children}
         </GameStateContext.Provider>
     );

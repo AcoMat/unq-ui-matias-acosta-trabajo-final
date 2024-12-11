@@ -2,30 +2,23 @@ import { useContext, useState } from 'react';
 import { GameStateContext } from '../../context/GameStateContext';
 import './ChooseBoard.css';
 function ChooseBoard() {
-    const { nextStage, setBoardSize } = useContext(GameStateContext);
+    const { nextStage, setPairsQuantity } = useContext(GameStateContext);
     const [customNumber, setCustomNumber] = useState(4);
 
     const handleClick = (pairs) => {
-        setBoardSize(calculateBoardDimensions(pairs));
-        nextStage();
-    }
-
-    const calculateBoardDimensions = (pairs) => {
-        const totalCards = pairs * 2;
-
-        let height = Math.floor(Math.sqrt(totalCards));
-        let width = Math.floor(totalCards / height);
+        setPairsQuantity(pairs);
+        console.log("pares seleccionados" + pairs);
         
-        return { width, height };
+        nextStage();
     }
 
     return (
         <div className='choose-container'>
             <h2>Elegí un tablero</h2>
             <div className='options'>
-                <button className='difficulty-button' onClick={() => handleClick(4*4)}>4 x 4</button>
-                <button className='difficulty-button' onClick={() => handleClick(6*5)}>6 x 5</button>
-                <button className='difficulty-button' onClick={() => handleClick(8*8)}>8 x 8</button>
+                <button className='difficulty-button' onClick={() => handleClick(8)}>4 x 4</button>
+                <button className='difficulty-button' onClick={() => handleClick(15)}>6 x 5</button>
+                <button className='difficulty-button' onClick={() => handleClick(32)}>8 x 8</button>
             </div>
             <div className='custom-board'>
                 <label>Personalizado (cant. de pares):</label>
