@@ -1,6 +1,7 @@
 import './Card.css';
 import reverso from '../../assets/cards/reverso.jpg';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { cardImages } from '../../util/images-import';
 
 
 function Card({ value, addSelection }) {
@@ -13,17 +14,10 @@ function Card({ value, addSelection }) {
         addSelection({ value, setActive, setLocked });
     };
 
-    useEffect(() => {
-        console.log("Carta creada");
-        console.log(value);
-        console.log(`../../assets/cards/${value}.jpg`);
-        
-    }, []);
-
     return (
         <div className={`flip-card ${active ? '' : 'inactive'}`} onClick={handleClick}>
             <div className='flip-card-front'>
-                <img src={`../../assets/cards/11oro.jpg`} alt="card" className='card-image' />
+                <img src={cardImages[value]} alt="card" className='card-image' />
             </div>
             <div className='flip-card-back'>
                 <img src={reverso} alt="card" className='card-image' />

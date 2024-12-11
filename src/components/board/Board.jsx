@@ -1,4 +1,4 @@
-import { allCards } from '../../util/images-import';
+import { cardImages } from '../../util/images-import';
 import Card from '../card/Card';
 import './Board.css';
 import {useEffect, useState } from 'react';
@@ -10,10 +10,12 @@ function Board({ height, width }) {
     useEffect(() => {
         console.log("Board creado");
         console.log("Pares restantes: " + pairsRemain);
+        console.log(Object.keys(cardImages));
+        
 
         let gamePairs = [];
         for (let i = 0; i < pairsRemain; i++) {
-            gamePairs = [...gamePairs, (allCards[Math.floor(Math.random() * allCards.length)])];
+            gamePairs = [...gamePairs, (Object.keys(cardImages)[Math.floor(Math.random() * Object.keys(cardImages).length)])];
         }
 
         let pairs = gamePairs.concat(gamePairs);
