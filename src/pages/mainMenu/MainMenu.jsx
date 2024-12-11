@@ -8,6 +8,7 @@ function MainMenu() {
         <div>
             <div className='title-container'>
                 <span className='title'>MemoTest</span>
+                <span className='autor'>Por: Matías Acosta</span>
             </div>
             <div>
                 <button className='start-button' onClick={nextStage}>Jugar</button>

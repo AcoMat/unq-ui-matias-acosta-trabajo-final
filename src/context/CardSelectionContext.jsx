@@ -13,12 +13,8 @@ export const CardSelectionProvider = ({ children, width, height }) => {
         console.log("Pares restantes: " + pairsRemain);
         if (pairsRemain === 0) {
             setTimeout(() => {
-            console.log("Juego terminado");
-            confetti({
-                spread: 180
-            });
-            nextStage();
-        }, 1000);
+                nextStage();
+            }, 1000);
         }
     }, [pairsRemain]);
 
@@ -37,7 +33,7 @@ export const CardSelectionProvider = ({ children, width, height }) => {
             } else {
                 setAllLocked(true);
                 actualCard.setActive(true);
-                setTimeout(()=> {
+                setTimeout(() => {
                     actualCard.setActive(false);
                     selectedCard.setActive(false);
                     setSelectedCard(null);
@@ -48,7 +44,7 @@ export const CardSelectionProvider = ({ children, width, height }) => {
     };
 
     return (
-        <CardSelectionContext.Provider value={{ addSelection, allLocked}}>
+        <CardSelectionContext.Provider value={{ addSelection, allLocked }}>
             {children}
         </CardSelectionContext.Provider>
     );
