@@ -6,16 +6,19 @@ export const CardSelectionContext = createContext();
 export const CardSelectionProvider = ({ children, width, height }) => {
     const [allLocked, setAllLocked] = useState(false);
     const [selectedCard, setSelectedCard] = useState(null);
-    const { pairsQuantity } = useContext(GameStateContext);
+    const { pairsQuantity, nextStage } = useContext(GameStateContext);
     const [pairsRemain, setPairsRemain] = useState(pairsQuantity);
 
     useEffect(() => {
         console.log("Pares restantes: " + pairsRemain);
         if (pairsRemain === 0) {
+            setTimeout(() => {
             console.log("Juego terminado");
             confetti({
                 spread: 180
             });
+            nextStage();
+        }, 1000);
         }
     }, [pairsRemain]);
 

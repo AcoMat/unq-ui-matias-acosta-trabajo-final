@@ -24,7 +24,6 @@ function Game() {
   return (
     <div className='board-container'>
       <Board height={boardSize.height} width={boardSize.width} />
-      <button onClick={nextStage}>Terminar</button>
     </div>
   );
 }
