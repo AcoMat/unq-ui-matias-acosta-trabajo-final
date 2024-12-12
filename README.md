@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/72e4769a-14c6-4dfe-b9ea-a29cf8e73564)
+![image](https://github.com/user-attachments/assets/04a849c3-1be5-4842-86f6-96795e0b09e7)
 
 # MemoTest
 ## Versión WEB
